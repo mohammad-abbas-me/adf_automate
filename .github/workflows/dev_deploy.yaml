@@ -1,4 +1,4 @@
-name: "ADF deploy"
+name: "ADF Terraform deploy"
 on:
   push:
     branches:
@@ -13,26 +13,21 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v1
-       
       - name: "Setup Terraform"
         uses: hashicorp/setup-terraform@v1
       with:
         terraform-version: 0.14.7
-
       - name: "Terraform init"
         id: init
         run: terraform init iac/tf
-
       - name: "Terraform plan"
         id: plan
         if: github.event_name == "push"
         run: terraform plan -no-color iac
         continue-on-error: true
-
       - name: "Terraform plan status"
         if: steps.plan.outcome == "failure"
         run: exit 1
-
       - name: "Terraform apply"
         run: terraform apply -auto-approve iac/tf
 
