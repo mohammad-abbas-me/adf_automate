@@ -61,7 +61,7 @@ resource "azurerm_data_factory_dataset_azure_blob" "adf_dataset_test" {
   linked_service_name = azurerm_data_factory_linked_service_azure_blob_storage.adf_linked_storage_test.name
 
   path     = "foo"
-  filename = "main.tf"
+  #filename = "main.tf"
 }
 
 # ADF Pipeline.
