@@ -30,9 +30,9 @@ jobs:
         run: terraform plan -no-color iac/tf
         continue-on-error: true
       
-        #- name: "Terraform plan status"
-        #if: steps.plan.outcome == 'failure'
-        #run: exit 1
+      - name: "Terraform plan status"
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
       
       - name: "Terraform apply"
         run: terraform apply -auto-approve iac/tf
