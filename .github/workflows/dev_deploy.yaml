@@ -27,7 +27,7 @@ jobs:
       - name: "Terraform plan"
         id: plan
         if: github.event_name == 'push'
-        run: terraform plan -no-color iac
+        run: terraform plan -no-color iac/tf
         continue-on-error: true
       
       - name: "Terraform plan status"
