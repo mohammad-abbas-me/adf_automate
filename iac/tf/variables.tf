@@ -37,7 +37,7 @@ variable "data_factory_name"{
 
 variable "storage_account_name"{
     description = "Azure blob storage account name"
-    default = "adfblobstoragetest1"
+    default = "adfblobstoragetestmohd"
 }
 
 variable "storage_container_name"{
